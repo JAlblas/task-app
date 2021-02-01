@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 
 class Overview extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props);
+
     }
 
     render() {
         return (
-            <div className="Overview">
-            Overview
-            </div>
+            <ul>
+            {this.props.todos.map((todo) => {
+              return <li>{todo}</li>;
+            })}
+          </ul>
         )
     }
 }

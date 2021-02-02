@@ -11,17 +11,18 @@ class App extends Component {
       count: 0
     };
 
-    this.addTodo = this.addTodo.bind(this);
+    this.editTodoTitle = this.editTodoTitle.bind(this);
     this.saveTodo = this.saveTodo.bind(this);
+    this.removeTodo = this.removeTodo.bind(this);
   }
 
-  saveTodo(e) {
+  editTodoTitle(e) {
     this.setState({
       todo: e.target.value
     })
   }
 
-  addTodo(e) {    
+  saveTodo(e) {    
     e.preventDefault();
     this.setState({
       todo: "",
@@ -30,16 +31,28 @@ class App extends Component {
     });
   }
 
+  removeTodo(id) {
+    let filteredTodos = this.state.todos.filter(function(todo){ 
+      console.log(id);
+      console.log(todo.index);
+        return todo.index !== id; 
+    });
+    this.setState({
+      todos: filteredTodos,
+      count: this.state.todos.length - 1
+    });
+  }
+
   render() {
     const { todo, todos, count } = this.state;
 
     return (
         <div>
-          <form onSubmit={this.addTodo}>
-            <input type="text" value={todo} onChange={this.saveTodo} />
+          <form onSubmit={this.saveTodo}>
+            <input type="text" value={todo} onChange={this.editTodoTitle} />
             <input type="submit" value="Submit" />
           </form>
-        <Overview todos={todos} count={count}/>
+        <Overview todos={todos} count={count} removeTodo={this.removeTodo}/>
       </div>
     );
   }

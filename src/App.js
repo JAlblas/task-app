@@ -7,7 +7,8 @@ class App extends Component {
 
     this.state = {
       todo: "",
-      todos: []
+      todos: [],
+      count: 0
     };
 
     this.addTodo = this.addTodo.bind(this);
@@ -23,18 +24,22 @@ class App extends Component {
   addTodo(e) {    
     e.preventDefault();
     this.setState({
-      todos: this.state.todos.concat(this.state.todo),
+      todo: "",
+      todos: this.state.todos.concat({title: this.state.todo, index: this.state.count}),
+      count: this.state.count + 1
     });
   }
 
   render() {
+    const { todo, todos, count } = this.state;
+
     return (
         <div>
           <form onSubmit={this.addTodo}>
-            <input type="text" value={this.state.todo} onChange={this.saveTodo} />
+            <input type="text" value={todo} onChange={this.saveTodo} />
             <input type="submit" value="Submit" />
           </form>
-        <Overview todos={this.state.todos}/>
+        <Overview todos={todos} count={count}/>
       </div>
     );
   }

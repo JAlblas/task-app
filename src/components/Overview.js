@@ -9,8 +9,8 @@ class Overview extends Component {
     render() {
         return (
             <ul>
-            {this.props.todos.map((todo) => {
-              return <li>{todo}</li>;
+            {this.props.todos.map((todo, index) => {
+              return <li key={index}>{todo}</li>;
             })}
           </ul>
         )

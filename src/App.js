@@ -6,25 +6,34 @@ class App extends Component {
     super(props);
 
     this.state = {
+      todo: "",
       todos: []
     };
 
     this.addTodo = this.addTodo.bind(this);
+    this.saveTodo = this.saveTodo.bind(this);
   }
 
-  addTodo(e) {
-    console.log("Adding todo!");
-    console.log(e.target.value);
+  saveTodo(e) {
     this.setState({
-      todos: this.state.todos.concat(e.target.value),
+      todo: e.target.value
+    })
+  }
+
+  addTodo(e) {    
+    e.preventDefault();
+    this.setState({
+      todos: this.state.todos.concat(this.state.todo),
     });
   }
 
   render() {
     return (
-      <div>
-        <input type="text" value="Task name" />
-        <input type="submit" value="Submit" onClick={this.addTodo}/>
+        <div>
+          <form onSubmit={this.addTodo}>
+            <input type="text" value={this.state.todo} onChange={this.saveTodo} />
+            <input type="submit" value="Submit" />
+          </form>
         <Overview todos={this.state.todos}/>
       </div>
     );

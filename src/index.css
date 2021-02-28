@@ -21,3 +21,7 @@ button {
   padding: 5px;
   background-color: azure;
 }
+
+ul {
+  list-style: none;
+}

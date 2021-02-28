@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/jalblas.github.io/task-app/static/css/main.e7c38b8c.chunk.css",
-    "main.js": "/jalblas.github.io/task-app/static/js/main.2ce28a2e.chunk.js",
-    "main.js.map": "/jalblas.github.io/task-app/static/js/main.2ce28a2e.chunk.js.map",
-    "runtime-main.js": "/jalblas.github.io/task-app/static/js/runtime-main.7f062ac6.js",
-    "runtime-main.js.map": "/jalblas.github.io/task-app/static/js/runtime-main.7f062ac6.js.map",
-    "static/js/2.a3baf410.chunk.js": "/jalblas.github.io/task-app/static/js/2.a3baf410.chunk.js",
-    "static/js/2.a3baf410.chunk.js.map": "/jalblas.github.io/task-app/static/js/2.a3baf410.chunk.js.map",
-    "index.html": "/jalblas.github.io/task-app/index.html",
-    "static/css/main.e7c38b8c.chunk.css.map": "/jalblas.github.io/task-app/static/css/main.e7c38b8c.chunk.css.map",
-    "static/js/2.a3baf410.chunk.js.LICENSE.txt": "/jalblas.github.io/task-app/static/js/2.a3baf410.chunk.js.LICENSE.txt"
+    "main.css": "/task-app/static/css/main.e7c38b8c.chunk.css",
+    "main.js": "/task-app/static/js/main.2ce28a2e.chunk.js",
+    "main.js.map": "/task-app/static/js/main.2ce28a2e.chunk.js.map",
+    "runtime-main.js": "/task-app/static/js/runtime-main.83b64f9a.js",
+    "runtime-main.js.map": "/task-app/static/js/runtime-main.83b64f9a.js.map",
+    "static/js/2.a3baf410.chunk.js": "/task-app/static/js/2.a3baf410.chunk.js",
+    "static/js/2.a3baf410.chunk.js.map": "/task-app/static/js/2.a3baf410.chunk.js.map",
+    "index.html": "/task-app/index.html",
+    "static/css/main.e7c38b8c.chunk.css.map": "/task-app/static/css/main.e7c38b8c.chunk.css.map",
+    "static/js/2.a3baf410.chunk.js.LICENSE.txt": "/task-app/static/js/2.a3baf410.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.7f062ac6.js",
+    "static/js/runtime-main.83b64f9a.js",
     "static/js/2.a3baf410.chunk.js",
     "static/css/main.e7c38b8c.chunk.css",
     "static/js/main.2ce28a2e.chunk.js"

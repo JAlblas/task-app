@@ -50,9 +50,9 @@ class App extends Component {
         <div>
           <form onSubmit={this.saveTodo}>
             <input type="text" value={todo} onChange={this.editTodoTitle} />
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Create" />
           </form>
-        <Overview todos={todos} count={count} removeTodo={this.removeTodo}/>
+        <Overview todos={todos} count={count} removeTodo={this.removeTodo} editTodo={this.editTodo}/>
       </div>
     );
   }

@@ -48,9 +48,10 @@ class App extends Component {
 
     return (
         <div>
+          <h3>Number of tasks: {this.state.count}</h3>
           <form onSubmit={this.saveTodo}>
             <input type="text" value={todo} onChange={this.editTodoTitle} />
-            <input type="submit" value="Create" />
+            <a className="button" onClick={this.saveTodo}>Create</a>
           </form>
         <Overview todos={todos} count={count} removeTodo={this.removeTodo} editTodo={this.editTodo}/>
       </div>

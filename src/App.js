@@ -14,6 +14,7 @@ class App extends Component {
     this.editTodoTitle = this.editTodoTitle.bind(this);
     this.saveTodo = this.saveTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
+    this.editTodoTitleAtIndex = this.editTodoAtIndex.bind(this);
   }
 
   editTodoTitle(e) {
@@ -22,13 +23,30 @@ class App extends Component {
     })
   }
 
+  editTodoAtIndex(index, e) {
+    const { todos } = this.state;
+    let newTodos = [...todos];
+    newTodos[index] = e.target.value;
+
+    console.log(e.target.value);
+
+    this.setState({
+      todos: newTodos
+    })
+  }
+
   saveTodo(e) {    
     e.preventDefault();
-    this.setState({
-      todo: "",
-      todos: this.state.todos.concat({title: this.state.todo, index: this.state.count}),
-      count: this.state.count + 1
-    });
+
+    if (this.state.todo !== "")
+    {
+      this.setState({
+        todo: "",
+        todos: this.state.todos.concat({title: this.state.todo, index: this.state.count}),
+        count: this.state.count + 1
+      });
+    } 
+
   }
 
   removeTodo(id) {
@@ -53,7 +71,7 @@ class App extends Component {
             <input type="text" value={todo} onChange={this.editTodoTitle} />
             <a className="button" onClick={this.saveTodo}>Create</a>
           </form>
-        <Overview todos={todos} count={count} removeTodo={this.removeTodo} editTodo={this.editTodo}/>
+        <Overview todos={todos} count={count} removeTodo={this.removeTodo} editTodoTitleAtIndex={this.editTodoTitleAtIndex}/>
       </div>
     );
   }

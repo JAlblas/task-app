@@ -11,14 +11,18 @@ class Todo extends Component {
     }
 
     render() {
-        let { todo } = this.props;
-        const editingTemplate = (<input type="text" value={todo.title}></input>);
-        const normalTemplate = (<div>{todo.title}</div>);
+        let { todo, key, editTodoTitleAtIndex } = this.props;
+
+        const editingTemplate = (<input type="text" value={todo.title} onChange={(e) => editTodoTitleAtIndex(key, e)}></input>);
+        const normalTemplate = (<p>{todo.title}</p>)
+        
         return (
-            <div>
+            <div className="todo-item">
                 {this.state.isEditing ? editingTemplate : normalTemplate}
-                    <a class="todo-button" onClick={() => this.props.removeTodo(todo.index)}>Delete</a>
+                <div className="buttons">
                     <a class="todo-button" onClick={() => this.setState({isEditing: !this.state.isEditing})}>Edit</a>
+                    <a class="todo-button" onClick={() => this.props.removeTodo(todo.index)}>Delete</a> 
+                </div>
             </div>
         )
     }

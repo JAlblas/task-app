@@ -14,8 +14,8 @@ class Overview extends Component {
     render() {
         return (
             <div id="list">
-                {this.props.todos.map((todo) => {
-                    return <Todo todo={todo}/>
+                {this.props.todos.map((todo, index) => {
+                    return <Todo todo={todo} editTodoTitleAtIndex={this.props.editTodoTitleAtIndex} removeTodo={this.props.removeTodo} key={index}/>
                 })}
             </div>
         )

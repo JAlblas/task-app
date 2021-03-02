@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Overview from './components/Overview';
 
+import { nanoid } from "nanoid";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +16,7 @@ class App extends Component {
     this.editTodoTitle = this.editTodoTitle.bind(this);
     this.saveTodo = this.saveTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
-    this.editTodoTitleAtIndex = this.editTodoAtIndex.bind(this);
+    this.editTodoWithId = this.editTodoWithId.bind(this);
   }
 
   editTodoTitle(e) {
@@ -23,16 +25,21 @@ class App extends Component {
     })
   }
 
-  editTodoAtIndex(index, e) {
+  editTodoWithId(id, e) {
     const { todos } = this.state;
-    let newTodos = [...todos];
-    newTodos[index] = e.target.value;
 
-    console.log(e.target.value);
+    const editedTaskList = todos.map(todo => {
+      // if this task has the same ID as the edited task
+        if (id === todo.id) {
+          //
+          return {...todo, title: e.target.value};
+        }
+        return todo;
+    });
 
     this.setState({
-      todos: newTodos
-    })
+      todos: editedTaskList
+    })  
   }
 
   saveTodo(e) {    
@@ -42,7 +49,7 @@ class App extends Component {
     {
       this.setState({
         todo: "",
-        todos: this.state.todos.concat({title: this.state.todo, index: this.state.count}),
+        todos: this.state.todos.concat({title: this.state.todo, id: nanoid()}),
         count: this.state.count + 1
       });
     } 
@@ -51,9 +58,7 @@ class App extends Component {
 
   removeTodo(id) {
     let filteredTodos = this.state.todos.filter(function(todo){ 
-      console.log(id);
-      console.log(todo.index);
-        return todo.index !== id; 
+        return todo.id !== id; 
     });
     this.setState({
       todos: filteredTodos,
@@ -71,7 +76,7 @@ class App extends Component {
             <input type="text" value={todo} onChange={this.editTodoTitle} />
             <a className="button" onClick={this.saveTodo}>Create</a>
           </form>
-        <Overview todos={todos} count={count} removeTodo={this.removeTodo} editTodoTitleAtIndex={this.editTodoTitleAtIndex}/>
+        <Overview todos={todos} count={count} removeTodo={this.removeTodo} editTodoWithId={this.editTodoWithId}/>
       </div>
     );
   }

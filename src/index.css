@@ -98,6 +98,14 @@ a.todo-button:hover{
   padding-right: 10px;
 }
 
+.todo-item input {
+  width: 50%;
+  font-size: 1.0em;
+  line-height: 50px;
+  margin:0;
+  border-radius: 10px;
+}
+
 .buttons {
   position: absolute;
   right: 0;
